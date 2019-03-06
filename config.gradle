@@ -1,0 +1,125 @@
+//这里配置了开发项目常用的第三方库以及SDK的版本号  可以按照项目需求进行选择或者版本升级
+//config.gradle配置方法:
+//在项目的根目录的build.gradle里添加 apply from: "config.gradle"支持  然后就可以直接使用了
+//具体使用方法看项目app里的build.gradle文件
+//打包混淆所需要的命令都已添加到proguard-rules.pro文件里
+
+ext {
+    android = [
+            compileSdkVersion: 27,
+            buildToolsVersion: "27.0.3",
+            minSdkVersion    : 19,
+            targetSdkVersion : 27,
+            versionCode      : 1,
+            versionName      : "1.0"
+    ]
+
+    version = [
+            androidSupportSdkVersion: "27.1.1",
+            retrofitSdkVersion      : "2.4.0",
+            glideSdkVersion         : "4.7.1",
+            butterknifeSdkVersion   : "8.8.1",
+            dagger2SdkVersion       : "2.15",
+            espressoSdkVersion      : "3.0.2",
+            alogSdkVersion          : "1.9.0",
+    ]
+
+
+    dependencies = [
+            //support
+            "appcompat-v7"                 : "com.android.support:appcompat-v7:${version["androidSupportSdkVersion"]}",
+            "design"                       : "com.android.support:design:${version["androidSupportSdkVersion"]}",
+            "support-v4"                   : "com.android.support:support-v4:${version["androidSupportSdkVersion"]}",
+            "cardview-v7"                  : "com.android.support:cardview-v7:${version["androidSupportSdkVersion"]}",
+            "annotations"                  : "com.android.support:support-annotations:${version["androidSupportSdkVersion"]}",
+            "recyclerview-v7"              : "com.android.support:recyclerview-v7:${version["androidSupportSdkVersion"]}",
+
+            //network
+            "retrofit"                     : "com.squareup.retrofit2:retrofit:${version["retrofitSdkVersion"]}",
+            "retrofit-converter-gson"      : "com.squareup.retrofit2:converter-gson:${version["retrofitSdkVersion"]}",
+            "retrofit-adapter-rxjava"      : "com.squareup.retrofit2:adapter-rxjava:${version["retrofitSdkVersion"]}",
+            "retrofit-adapter-rxjava2"     : "com.squareup.retrofit2:adapter-rxjava2:${version["retrofitSdkVersion"]}",
+            "logging-interceptor"          : "com.squareup.okhttp3:logging-interceptor:3.10.0",
+            "okhttp3"                      : "com.squareup.okhttp3:okhttp:3.10.0",
+            "okhttp-urlconnection"         : "com.squareup.okhttp:okhttp-urlconnection:2.0.0",
+            "glide"                        : "com.github.bumptech.glide:glide:${version["glideSdkVersion"]}",
+            "glide-compiler"               : "com.github.bumptech.glide:compiler:${version["glideSdkVersion"]}",
+            "glide-loader-okhttp3"         : "com.github.bumptech.glide:okhttp3-integration:${version["glideSdkVersion"]}",
+            "picasso"                      : "com.squareup.picasso:picasso:2.71828",
+            "fresco"                       : "com.facebook.fresco:fresco:1.9.0",
+            "photodraweeview"              : "me.relex:photodraweeview:1.1.3",
+
+            //view
+            "constraint-layout"            : "com.android.support.constraint:constraint-layout:1.1.3",
+            "autolayout"                   : "com.zhy:autolayout:1.4.5",
+            "butterknife"                  : "com.jakewharton:butterknife:${version["butterknifeSdkVersion"]}",
+            "butterknife-compiler"         : "com.jakewharton:butterknife-compiler:${version["butterknifeSdkVersion"]}",
+            "pickerview"                   : "com.contrarywind:Android-PickerView:3.2.5",
+            "photoview"                    : "com.github.chrisbanes.photoview:library:1.2.3",
+            "numberprogressbar"            : "com.daimajia.numberprogressbar:library:1.2@aar",
+            "nineoldandroids"              : "com.nineoldandroids:library:2.4.0",
+            "paginate"                     : "com.github.markomilos:paginate:0.5.1",
+            "vlayout"                      : "com.alibaba.android:vlayout:1.1.0@aar",
+            "smartrefresh"                 : "com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1",
+            //没有使用特殊Header，可以不加这个
+            "smartrefresh_header"          : "com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1",
+            "BaseRecyclerViewAdapterHelper": "com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.42",
+            //状态栏解决方案
+            "statusbarutil"                : "com.jaeger.statusbarutil:library:1.5.1",
+            //封装webview
+            "agentweb"                     : "com.just.agentweb:agentweb:4.0.2",
+            "download"                     : "com.just.agentweb:download:4.0.2",
+            "filechooser"                  : "com.just.agentweb:filechooser:4.0.2",
+            "ToastUtils"                   : "com.hjq:toast:5.2",
+            "fragmentation"                : "me.yokeyword:fragmentation:1.3.6",
+            "bottom-bar"                   : "com.roughike:bottom-bar:2.3.1",
+            "immersionbar"                 : "com.gyf.immersionbar:immersionbar:2.3.3-beta15",
+            "pictureselector"              : "com.github.LuckSiege.PictureSelector:picture_library:v2.2.3",
+            "autosize"                     : "me.jessyan:autosize:1.1.2",
+
+            //rx2
+            "rxandroid2"                   : "io.reactivex.rxjava2:rxandroid:2.0.2",
+            "rxjava2"                      : "io.reactivex.rxjava2:rxjava:2.1.12",
+            "rxlifecycle2"                 : "com.trello.rxlifecycle2:rxlifecycle:${version["rxlifecycle2SdkVersion"]}",
+            "rxlifecycle2-android"         : "com.trello.rxlifecycle2:rxlifecycle-android:${version["rxlifecycle2SdkVersion"]}",
+            "rxlifecycle2-components"      : "com.trello.rxlifecycle2:rxlifecycle-components:${version["rxlifecycle2SdkVersion"]}",
+            "rxcache2"                     : "com.github.VictorAlbertos.RxCache:runtime:1.8.3-2.x",
+            "rxeasyhttp"                   : "com.zhouyou:rxeasyhttp:2.1.2",
+
+            //tools
+            "dagger2"                      : "com.google.dagger:dagger:${version["dagger2SdkVersion"]}",
+            "dagger2-android"              : "com.google.dagger:dagger-android:${version["dagger2SdkVersion"]}",
+            "dagger2-android-support"      : "com.google.dagger:dagger-android-support:${version["dagger2SdkVersion"]}",
+            "dagger2-compiler"             : "com.google.dagger:dagger-compiler:${version["dagger2SdkVersion"]}",
+            "dagger2-android-processor"    : "com.google.dagger:dagger-android-processor:${version["dagger2SdkVersion"]}",
+            "androideventbus"              : "org.simple:androideventbus:1.0.5.1",
+            "otto"                         : "com.squareup:otto:1.3.8",
+            "gson"                         : "com.google.code.gson:gson:2.8.2",
+            "javax.annotation"             : "javax.annotation:jsr250-api:1.0",
+            "arouter"                      : "com.alibaba:arouter-api:1.3.1",
+            "arouter-compiler"             : "com.alibaba:arouter-compiler:1.1.4",
+            "progressmanager"              : "me.jessyan:progressmanager:1.5.0",
+            "retrofit-url-manager"         : "me.jessyan:retrofit-url-manager:1.4.0",
+            "lifecyclemodel"               : "me.jessyan:lifecyclemodel:1.0.1",
+            "luban"                        : "top.zibin:Luban:1.1.2",
+            "eventbus"                     : "org.greenrobot:eventbus:3.1.1",
+            "litepal"                      : "org.litepal.android:core:2.0.0",
+            "andpermission"                : "com.yanzhenjie:permission:2.0.0-rc12",
+            "umeng-analytics"              : "com.umeng.analytics:analytics:6.0.1",
+
+            //test
+            "junit"                        : "junit:junit:4.12",
+            "androidJUnitRunner"           : "android.support.test.runner.AndroidJUnitRunner",
+            "runner"                       : "com.android.support.test:runner:1.0.2",
+            "espresso-core"                : "com.android.support.test.espresso:espresso-core:${version["espressoSdkVersion"]}",
+            "espresso-contrib"             : "com.android.support.test.espresso:espresso-contrib:${version["espressoSdkVersion"]}",
+            "espresso-intents"             : "com.android.support.test.espresso:espresso-intents:${version["espressoSdkVersion"]}",
+            "mockito-core"                 : "org.mockito:mockito-core:1.+",
+            "timber"                       : "com.jakewharton.timber:timber:4.7.0",
+            "alog"                         : "com.blankj:alog:${version["alogSdkVersion"]}",
+            "canary-debug"                 : "com.squareup.leakcanary:leakcanary-android:${version["canarySdkVersion"]}",
+            "canary-release"               : "com.squareup.leakcanary:leakcanary-android-no-op:${version["canarySdkVersion"]}",
+
+    ]
+
+}

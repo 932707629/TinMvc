@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<tabs>
+    <tab
+        icon="@drawable/ic_home"
+        id="@+id/tab_home"
+        title="首页" />
+    <tab
+        icon="@drawable/ic_home"
+        id="@+id/tab_activity"
+        title="动态" />
+    <tab
+        icon="@drawable/ic_home"
+        id="@+id/tab_mine"
+        title="我的" />
+</tabs>
+
+    <!--inActiveColor：
+    未被选择时，标签的颜色，作用于 icon 和 title。
+    activeColor：
+    被选择时，标签的颜色，作用于 icon 和 title，与上面相对应。
+    barColorWhenSelected：
+    当该标签被选择时，整个 BottomBar 的背景色。（就是一点，整个底部渐变的那个颜色）
+    badgeBackgroundColor：
+    设置 Badges 的背景色，就是右上角显示数字那个。
+    badgeHidesWhenActive：
+    选择此选项卡时是否应该隐藏徽章，默认为true。-->
+
+

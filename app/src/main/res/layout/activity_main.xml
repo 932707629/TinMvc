@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/fl_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1" />
+
+    <com.roughike.bottombar.BottomBar
+        android:id="@+id/bottomBar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/dp_60"
+        app:bb_showShadow="true"
+        app:bb_tabXmlResource="@xml/bottombar_menu"
+        app:bb_titleTextAppearance="@style/CustomTitleTextAppearance" />
+
+    <!--app导航栏框架(https://github.com/roughike/BottomBar)
+    bb_tabXmlResource：
+    设置标签的 xml 资源标识，在 res/xml/ 目录下。
+    bb_tabletMode：
+    是否是平板模式。true：是；false：不是。
+    bb_behavior：（三种模式）
+    shifting: 选定的标签比其他的更宽。
+    shy: 将 Bottombar 放在 Coordinatorlayout 它会自动隐藏在滚动！（需要特定的布局）
+    underNavbar: 正常模式（默认）。
+    bb_inActiveTabAlpha：
+    没选中时标签的透明度，icon 和 titiles 有用。（取值：0-1）
+    bb_activeTabAlpha：
+    选中时标签的透明度，与上一个相对应。（取值：0-1）
+    bb_inActiveTabColor：
+    没选时标签的颜色，icon 和 titiles 有用。
+    bb_activeTabColor：
+    选中时标签的颜色，与一个相对应。
+    bb_badgeBackgroundColor：
+    设置 Badges 的背景色，就是右上角显示数字那个。
+    bb_badgesHideWhenActive：
+    小红点是否隐藏，默认为 true 隐藏。就是右上角显示数字那个。
+    bb_titleTextAppearance：
+    利用 style 重新设置自定的格式，例如：大小、加粗等。
+    bb_titleTypeFace：
+    设置自定的字体, 例： app:bb_titleTypeFace="fonts/MySuperDuperFont.ttf"。
+    将字体放在 src/main/assets/fonts/MySuperDuperFont.ttf 路径下，
+    只需要写 fonts/MySuperDuperFont.ttf 即可，将自动填充。
+    bb_showShadow：
+    控制阴影是否显示或隐藏，类似于蒙板，默认为true。-->
+
+
+</LinearLayout>

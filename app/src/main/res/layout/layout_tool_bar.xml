@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/dp_50"
+    android:background="@color/colorPrimary">
+
+    <!--这里设置标题栏背景可以是纯色/渐变色/图片
+    如果需要状态栏一样有图片/渐变效果
+    无需设置statusBarColor这个参数 框架会自动识别图片/渐变 标题栏自动向下偏移-->
+
+    <!--不建议使用RelativeLayout做titlebar的父布局 因为ImmersionBar会改变父布局的高度,
+       layout_centerInParent/layout_alignParentBottom/layout_alignParentRight/layout_alignParentEnd
+       等跟父布局相关的属性会受到影响.如果一定要使用,并且用到了跟父布局相关的属性
+       则需要多加一层布局或者用layout_marginTop/layout_marginBottom对控件进行约束-->
+
+    <TextView
+        android:id="@+id/view_back"
+        android:layout_width="@dimen/dp_50"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:text="返回"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_15" />
+
+    <TextView
+        android:id="@+id/tv_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/dp_13"
+        android:gravity="center_vertical"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sp_18"
+        tools:text="@string/app_name" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/px_1"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color_eee" />
+
+</RelativeLayout>
