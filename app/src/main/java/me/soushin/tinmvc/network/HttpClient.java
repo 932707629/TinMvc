@@ -104,7 +104,7 @@ public class HttpClient {
      * 在onDestroy里执行
      * 取消所有订阅的网络请求
      */
-    public static void disposeRequest(String className) {
+    public static synchronized void disposeRequest(String className) {
         Iterator<SubcribeModel> it = disposList.iterator();
         while(it.hasNext()){
             SubcribeModel subcribeModel=it.next();

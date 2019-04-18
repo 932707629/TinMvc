@@ -53,7 +53,8 @@ dependencies {
     implementation rootProject.ext.dependencies["fragmentation"]
     implementation rootProject.ext.dependencies["smartrefresh"]
     implementation rootProject.ext.dependencies["alog"]
-    implementation rootProject.ext.dependencies["andpermission"]
+    implementation rootProject.ext.dependencies["eventbus"]
+    implementation rootProject.ext.dependencies["rxpermissions"]
     implementation rootProject.ext.dependencies["autosize"]
     implementation(rootProject.ext.dependencies["bottom-bar"]) {
         exclude group: 'com.android.support'

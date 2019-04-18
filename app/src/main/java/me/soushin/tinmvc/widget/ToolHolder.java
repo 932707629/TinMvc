@@ -1,4 +1,4 @@
-package me.soushin.tinmvc.widegt;
+package me.soushin.tinmvc.widget;
 
 import android.view.View;
 import android.widget.TextView;

@@ -36,12 +36,16 @@
         <meta-data
             android:name="design_height_in_dp"
             android:value="640" />
-
+        <!--应用初始化-->
+        <provider
+            android:name=".widget.InitProvider"
+            android:authorities="${applicationId}.tinmvp-init-provider"
+            android:exported="false"
+            android:multiprocess="true"/>
         <activity android:name=".module.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

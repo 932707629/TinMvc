@@ -5,9 +5,7 @@ import android.view.View;
 
 import com.gyf.barlibrary.ImmersionBar;
 import me.soushin.tinmvc.R;
-import me.soushin.tinmvc.widegt.ToolHolder;
-
-import me.soushin.tinmvc.widegt.ToolHolder;
+import me.soushin.tinmvc.widget.ToolHolder;
 
 /**
  * 标题栏工具类

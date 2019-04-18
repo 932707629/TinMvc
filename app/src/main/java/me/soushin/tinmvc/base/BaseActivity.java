@@ -6,10 +6,6 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 
 import com.hjq.toast.ToastUtils;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-
-import java.util.List;
 
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
@@ -79,21 +75,6 @@ public abstract class BaseActivity extends SupportActivity {
     protected void startActivity(Class clazz, Intent intent) {
         intent.setClass(getActivity(), clazz);
         startActivity(intent);
-    }
-
-    /**
-     * @param deniedAction  权限拒绝Action
-     * @param grantedAction 权限赋予Action
-     * @param permissions   权限列表
-     * @权限申请 使用前要在AndroidManifest里加上对应权限
-     */
-    protected void requestPermission(Action<List<String>> deniedAction, Action<List<String>> grantedAction, String... permissions) {
-        AndPermission.with(getActivity())
-                .runtime()
-                .permission(permissions)
-                .onDenied(deniedAction)
-                .onGranted(grantedAction)
-                .start();
     }
 
     @Override

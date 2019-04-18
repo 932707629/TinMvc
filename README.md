@@ -18,6 +18,8 @@
 11. 使用bottombar优化用户体验
 12. 支持新手指引,编程中使用不规范的地方,会引导你正确使用
 13. 使用插件一键生成Activity/Fragment
+14. 依赖RxPermission,权限申请更简单
+15. 使用EventBus,事件传递更加清晰
 
 
 ### 开发准备 ###
@@ -27,7 +29,7 @@
 ### 开发指南 ###
 
 使用的第三方框架:
- 
+
 [BottomBar](https://github.com/roughike/BottomBar "BottomBar")
 
 [Fragmentation](https://github.com/YoKeyword/Fragmentation "Fragmentation")
@@ -48,7 +50,9 @@
 
 [ALog](https://github.com/Blankj/ALog "ALog")
 
-[AndPermission](https://github.com/yanzhenjie/AndPermission "AndPermission")
+[RxPermissions](https://github.com/tbruyelle/RxPermissions "RxPermissions")
+
+[EventBus](https://github.com/greenrobot/EventBus "EventBus")
 
 ### 使用插件一键生成Activity/Fragment ###
 
