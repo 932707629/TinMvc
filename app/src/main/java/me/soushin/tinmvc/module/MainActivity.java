@@ -1,5 +1,7 @@
 package me.soushin.tinmvc.module;
 
+import android.Manifest;
+import android.media.MediaRouter;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 
@@ -15,18 +17,14 @@ import me.soushin.tinmvc.utils.NetUtils;
 import me.soushin.tinmvc.utils.StringUtils;
 import com.roughike.bottombar.BottomBar;
 import com.roughike.bottombar.OnTabSelectListener;
-import com.yanzhenjie.permission.Action;
-import com.yanzhenjie.permission.AndPermission;
-import com.yanzhenjie.permission.Permission;
+import com.tbruyelle.rxpermissions2.Permission;
+import com.tbruyelle.rxpermissions2.RxPermissions;
+import com.zhouyou.http.subsciber.ProgressSubscriber;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import me.soushin.tinmvc.base.BaseActivity;
-import me.soushin.tinmvc.module.demo.MineFragment;
-import me.soushin.tinmvc.utils.ActivityUtils;
-import me.soushin.tinmvc.utils.AppUtils;
 import me.yokeyword.fragmentation.SupportFragment;
 
 
@@ -67,22 +65,21 @@ public class MainActivity extends BaseActivity implements OnTabSelectListener {
 
     private void initPermission() {
         //获取权限
-        final String[] permissions=new String[]{ Permission.WRITE_EXTERNAL_STORAGE};
-        requestPermission(new Action<List<String>>() {
-            @Override
-            public void onAction(List<String> data) {
-                ALog.e("权限被拒绝.....", data);
-                //这里判断是否点了拒绝后不再询问
-                if (AndPermission.hasAlwaysDeniedPermission(getActivity(),permissions)) {
-                    showToasty("权限已被拒绝,这将会导致部分功能不可用！");
-                }
-            }
-        }, new Action<List<String>>() {
-            @Override
-            public void onAction(List<String> data) {
-                ALog.e("权限已同意.....", data);
-            }
-        }, permissions);
+        new RxPermissions(getThis())
+                .requestEachCombined(Manifest.permission.WRITE_EXTERNAL_STORAGE)
+                .subscribe(new ProgressSubscriber<Permission>(getThis()) {
+                    @Override
+                    public void onNext(Permission permission) {
+                        super.onNext(permission);
+                        if (permission.granted){
+                            ALog.e("权限已同意.....", permission.toString());
+                        }else if (permission.shouldShowRequestPermissionRationale){
+                            showToasty("权限已被拒绝,这将会导致部分功能不可用！");
+                        }else {
+                            ALog.e("权限被拒绝.....",  permission.toString());
+                        }
+                    }
+                });
     }
 
     @Override
@@ -118,7 +115,7 @@ public class MainActivity extends BaseActivity implements OnTabSelectListener {
      * 检测网络
      */
     private void inspectNet() {
-        int netMobile = NetUtils.getNetWorkState(getActivity());
+        int netMobile = NetUtils.getNetWorkState(getThis());
         switch (netMobile) {
             case 1:
                 ALog.e("网络状况:当前没有网络");
@@ -137,7 +134,7 @@ public class MainActivity extends BaseActivity implements OnTabSelectListener {
     public void onBackPressedSupport() {
 //        onBackPressed()已停用  请使用onBackPressedSupport代替
         if (AppUtils.doubleClickExit()) {
-            ActivityUtils.AppExit(getActivity());
+            ActivityUtils.AppExit(getThis());
         }
     }
 

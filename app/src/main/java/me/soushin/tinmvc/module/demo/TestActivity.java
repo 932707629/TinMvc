@@ -45,7 +45,7 @@ public class TestActivity extends BaseActivity implements BaseQuickAdapter.OnIte
     @Override
     protected void initView(@Nullable Bundle savedInstanceState) {
         testAdapter = new TestAdapter();
-        rvTest.setLayoutManager(new LinearLayoutManager(getActivity()));
+        rvTest.setLayoutManager(new LinearLayoutManager(getThis()));
         rvTest.setHasFixedSize(true);
         testAdapter.bindToRecyclerView(rvTest);
         srlRefresh.autoRefresh();
@@ -65,7 +65,7 @@ public class TestActivity extends BaseActivity implements BaseQuickAdapter.OnIte
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
 //        演示处理EditText显示隐藏输入法
-        AppUtils.dispatchEditText(getActivity(), ev);
+        AppUtils.dispatchEditText(getThis(), ev);
         return super.dispatchTouchEvent(ev);
     }
 
@@ -95,7 +95,6 @@ public class TestActivity extends BaseActivity implements BaseQuickAdapter.OnIte
         } else {
             testAdapter.addData(srlRefresh, datalist);
         }
-
     }
 
 }

@@ -12,7 +12,7 @@ public class DataUtils {
 
     public static List<String> getActiveList(){
         List<String> activeList=new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
+        for (int i = 0; i < 20; i++) {
             activeList.add("动态数组");
         }
         return activeList;

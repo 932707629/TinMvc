@@ -111,8 +111,12 @@ public abstract class BaseFragment extends SupportFragment implements SimpleImme
      *
      * @return
      */
-    protected FragmentActivity getActivity_() {
+    protected FragmentActivity getThis() {
         return _mActivity;
+    }
+
+    public boolean useEventBus(){
+        return false;
     }
 
     @Override

@@ -44,8 +44,12 @@ public abstract class BaseActivity extends SupportActivity {
      *
      * @return
      */
-    protected AppCompatActivity getActivity() {
+    protected AppCompatActivity getThis() {
         return this;
+    }
+
+    public boolean useEventBus(){
+        return false;
     }
 
     /**
@@ -63,7 +67,7 @@ public abstract class BaseActivity extends SupportActivity {
      * @param clazz
      */
     protected void startActivity(Class clazz) {
-        startActivity(new Intent(getActivity(), clazz));
+        startActivity(new Intent(getThis(), clazz));
     }
 
     /**
@@ -73,7 +77,7 @@ public abstract class BaseActivity extends SupportActivity {
      * @param intent
      */
     protected void startActivity(Class clazz, Intent intent) {
-        intent.setClass(getActivity(), clazz);
+        intent.setClass(getThis(), clazz);
         startActivity(intent);
     }
 
